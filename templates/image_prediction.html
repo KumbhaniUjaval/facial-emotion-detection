@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Emotion Prediction</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container compact-layout">
+        <h1>Image Emotion Prediction</h1>
+        
+        <div class="flex-container">
+            <div class="left-panel">
+                <form id="image-upload-form" enctype="multipart/form-data">
+                    <input type="file" id="image-upload" accept="image/*" required>
+                    <div class="form-btn-container">
+                        <button type="submit" class="btn" id="predict-btn">Predict Emotion</button>
+                    </div>
+                </form>
+                
+                <div id="preview-container" class="hidden">
+                    <img id="uploaded-image" src="" alt="Uploaded Image" />
+                    <!-- Face overlay will be added dynamically here -->
+                </div>
+            </div>
+            
+            <div class="right-panel">
+                <div id="result" class="hidden">
+                    <h2>Prediction Results:</h2>
+                    <div id="faces-container">
+                        <!-- Multiple face results will be added here dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="btn-container">
+            <button id="new-image-btn" class="btn btn-secondary hidden">Choose Another Image</button>
+            <a href="{{ url_for('index') }}" class="btn">Back to Home</a>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='imagedisplay.js') }}"></script>
+</body>
+</html>

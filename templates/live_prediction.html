@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Emotion Prediction</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container compact-layout">
+        <h1>Live Emotion Prediction</h1>
+        
+        <div class="flex-container">
+            <div class="left-panel">
+                <div id="video-container">
+                    <video id="video" autoplay></video>
+                    <canvas id="canvas" style="display:none;"></canvas>
+                </div>
+            </div>
+            
+            <div class="right-panel">
+                <div id="result" class="hidden">
+                    <h2>Prediction Result:</h2>
+                    <div class="emotion-display">Emotion: <span id="emotion"></span></div>
+                    <div>Confidence: <span id="confidence"></span></div>
+                    <div class="confidence-bar">
+                        <div class="confidence-bar-fill" id="confidence-bar-fill"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="btn-container">
+            <button id="start-btn" class="btn">Start Camera</button>
+            <button id="stop-btn" class="btn btn-secondary hidden">Stop Camera</button>
+            <a href="{{ url_for('index') }}" class="btn">Back to Home</a>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
